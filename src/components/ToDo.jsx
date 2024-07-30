@@ -19,15 +19,12 @@ export default function ToDo({ todo, dispatch, category }) {
     });
   }
 
-  const [{ isDragging }, dragRef] = useDrag(() => ({
+  const [dragRef] = useDrag(() => ({
     type: "card",
     item: {
       id: todo.id,
       category,
     },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging()
-    })
   }))
 
   return (
